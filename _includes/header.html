@@ -5,9 +5,10 @@
 
     <nav class="site-nav">
       <div class="trigger">
-        <a class="page-link" href="/projects">Projects</a>
-        <a class="page-link" href="/meetings">Meetings</a>
-        <a class="page-link" href="http://tamasnagy.com">tamasnagy.com</a>
+        {% for page in site.header-pages %}
+          <a class="page-link" href="/{{ page | downcase }}">{{ page }}</a>
+        {% endfor %}
+        <a class="page-link" href="{{ site.website }}">{{ site.website | remove: "https://" | remove: "http://" }}</a>
       </div>
     </nav>
 

@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<head>
+  {% include calheader.html %}
+    <script type="text/javascript">
+
+        // stolen from here: https://stackoverflow.com/questions/688196/how-to-use-a-link-to-call-javascript
+        window.onload = function() {
+          // hides the element specified by data-target when a link is clicked
+          f = function() {
+            var button = document.getElementById(this.id);
+            target = document.getElementById(button.dataset.target)
+            if (target.style.display === 'block') {
+                target.style.display = 'none';
+            } else {
+                target.style.display = 'block';
+            }
+            return false;
+          }
+
+          document.getElementById("protocol-link").onclick = f;
+          document.getElementById("misc-link").onclick = f;
+        }
+    </script>
+</head>
+<p>{{ site.description | escape }}</p>
+<div id="calendar" style="margin:0 auto;">
+	<div id="cal-heatmap"></div>
+	<div style="padding-top: 10px;">
+		<a href="#" style="margin-right:10px;" id="cal-heatmap-PreviousDomain-selector">&larr;</a>
+		<a href="#" style="float:right;" id="cal-heatmap-NextDomain-selector">&rarr;</a>
+	</div>
+</div>
+<div id="home">
+  <h1>Daily log</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.date | date: "%B %Y" }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h1><a id="protocol-link" data-target="protocol-list" href="#">Protocols</a></h1>
+  <div id="protocol-list">
+    <ul class="posts">
+      {% for page in site.pages %}
+      {% if page.url contains 'protocols/' %}
+        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | escape }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <h1><a id="misc-link" href="#" data-target="misc-list">Miscellaneous</a></h1>
+  <div id="misc-list">
+    <ul class="posts">
+      {% for page in site.pages %}
+      {% if page.url contains 'random/' %}
+        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | escape }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% include calfooter.html %}

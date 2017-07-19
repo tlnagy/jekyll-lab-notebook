@@ -1,0 +1,84 @@
+<script type="text/javascript">
+
+var data = {% listdays %};
+
+var responsiveCal = function( options ) {
+	var now = new Date();
+    if ( $(window).width() < 730 ) {
+        options.start = now.setMonth(now.getMonth());
+        options.range = 1;
+        options.cellSize = 20;
+    } else if( $(window).width() < 1400 ) {
+        options.start = now.setMonth(now.getMonth() - 1);
+        options.range = 2;
+        options.cellSize = 23;
+    } else {
+        options.start = now.setMonth(now.getMonth() - 2);
+        options.range = 3;
+        options.cellSize = 23;
+    }
+
+    if( typeof cal === "object" ) {
+        $('#cal-heatmap').html('');
+        cal = cal.destroy();
+    }
+    cal = new CalHeatMap();
+    cal.init( options );
+
+}
+caloptions = {
+    itemSelector: "#cal-heatmap",
+	domain: "month",
+	subDomain: "x_day",
+	data: data,
+	dataType: "json",
+	cellPadding: 5,
+	domainGutter: 20,
+	displayLegend: false,
+	range: 4,
+  highlight: "now",
+	considerMissingDataAsZero:false,
+	domainDynamicDimension: true,
+	previousSelector: "#cal-heatmap-PreviousDomain-selector",
+	nextSelector: "#cal-heatmap-NextDomain-selector",
+  weekStartOnMonday:false,
+	domainLabelFormat: function(date) {
+		moment.locale("en");
+		return moment(date).format("MMMM").toUpperCase();
+	},
+  onClick: function(date, nb) {
+    year = date.getFullYear();
+    month = ("0"+(date.getMonth()+1)).slice(-2);
+    day = ("0" + date.getDate()).slice(-2);
+    if (nb > 0){
+      window.location.href = "/log/" + year + "_" + month + "/#" + year + month + day;
+    }
+	},
+  legendColors: {
+		min: "lightgrey",
+		max: "#2a7ae2",
+		empty: "lightgrey"
+	},
+	subDomainTextFormat: "%d",
+	legend: [0,1,2,3,4,5],
+	label: {
+		position: "top"
+	}
+};
+
+
+// run first time, put in load if your scripts are in footer
+responsiveCal( caloptions );
+
+$(window).resize(function() {
+    if(this.resizeTO) clearTimeout(this.resizeTO);
+    this.resizeTO = setTimeout(function() {
+        $(this).trigger('resizeEnd');
+    }, 500);
+});
+
+//resize on resizeEnd function
+$(window).bind('resizeEnd', function() {
+	 responsiveCal( cal.options );
+});
+</script>

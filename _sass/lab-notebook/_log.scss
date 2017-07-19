@@ -1,0 +1,73 @@
+// http://blog.winddweb.info/implement-github-like-checkbox
+.box,
+.box_done,
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item input {
+  margin: 0 0.2em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-info hr {
+  border-top-color: #abdde5;
+}
+
+.alert-info .alert-link {
+  color: #062c33;
+}
+
+.alert {
+  padding: 0.75rem 1.25rem 0 1.25em;
+  margin: 0.5em 0;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-heading {
+  color: inherit;
+}
+
+.alert-note {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-note hr {
+  border-top-color: #ffe8a1;
+}
+
+.alert-note .alert-link {
+  color: #533f03;
+}
+
+#calendar {
+    padding-bottom: 1.5rem;
+}
+
+.pdf-wrapper {
+    padding: 2rem 0;
+}
+
+.pdf-wrapper embed{
+	display: inline-block;
+	height: 500px;
+	width: 100%;
+}
+
+.pdf-wrapper .caption{
+	display: table;
+	margin: 0 auto;
+}

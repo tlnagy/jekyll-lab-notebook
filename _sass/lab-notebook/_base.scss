@@ -1,0 +1,39 @@
+#protocol-list {
+    display: none;
+}
+
+#misc-list {
+    display: none;
+}
+
+.postNav {
+    padding: 1em 0 1em 0;
+    margin: 1em 0 2em 0;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.postNav a{
+    text-transform: uppercase;
+    // text-align: center;
+    // padding: 2em 0 2em 0;
+    // margin: 2em;
+}
+
+.postNav .prev {
+    float: left;
+}
+
+.postNav .next {
+    float: right;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}

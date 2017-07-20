@@ -1,4 +1,4 @@
-# jekyll-lab-notebook
+# 📓 jekyll-lab-notebook
 
 [![Gem Version](https://badge.fury.io/rb/jekyll-lab-notebook.svg)](https://badge.fury.io/rb/jekyll-lab-notebook)
 

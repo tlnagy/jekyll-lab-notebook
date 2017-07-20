@@ -14,7 +14,7 @@ whatever; think of this as your springboard.
 
 ## Installation and Usage
 
-TODO
+See the [eln-example](https://github.com/tlnagy/eln-example) repo.
 
 ## Contributing
 

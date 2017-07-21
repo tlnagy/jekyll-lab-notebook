@@ -3,6 +3,8 @@ layout: default
 ---
 <head>
   {% include calheader.html %}
+  {% assign home-items = site.jekyll-lab-notebook.home-page %}
+
     <script type="text/javascript">
 
         // stolen from here: https://stackoverflow.com/questions/688196/how-to-use-a-link-to-call-javascript
@@ -19,8 +21,19 @@ layout: default
             return false;
           }
 
-          document.getElementById("protocol-link").onclick = f;
-          document.getElementById("misc-link").onclick = f;
+          {% if home-items %}
+            {% for item in home-items %}
+              {% assign button_id = item.name | slugify | append: '-link' %}
+              button = document.getElementById("{{ button_id }}")
+              button.onclick = f;
+              target = document.getElementById(button.dataset.target)
+              {% if item.hidden %}
+                target.style.display = 'none'
+              {% else %}
+                target.style.display = 'block'
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         }
     </script>
 </head>
@@ -33,33 +46,26 @@ layout: default
 	</div>
 </div>
 <div id="home">
-  <h1>Daily log</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.date | date: "%B %Y" }}</a></li>
+  {% if home-items %}
+    {% for item in home-items %}
+      <h1><a href="#" id="{{ item.name | slugify | append: '-link'}}"
+         data-target="{{ item.name | slugify | append: '-list'}}">{{ item.name }}</h1>
+      <div id="{{ item.name | slugify | append: '-list' }}">
+      <ul class="posts">
+        {% if item.is_posts %}
+          {% for post in site.posts %}
+            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.date | date: "%B %Y" }}</a></li>
+          {% endfor %}
+        {% elsif item.dir %}
+          {% for page in site.pages %}
+            {% if page.url contains item.dir %}
+              <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | escape }}</a></li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </ul>
+      </div>
     {% endfor %}
-  </ul>
-
-  <h1><a id="protocol-link" data-target="protocol-list" href="#">Protocols</a></h1>
-  <div id="protocol-list">
-    <ul class="posts">
-      {% for page in site.pages %}
-      {% if page.url contains 'protocols/' %}
-        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | escape }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-
-  <h1><a id="misc-link" href="#" data-target="misc-list">Miscellaneous</a></h1>
-  <div id="misc-list">
-    <ul class="posts">
-      {% for page in site.pages %}
-      {% if page.url contains 'random/' %}
-        <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | escape }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+  {% endif %}
 </div>
 {% include calfooter.html %}

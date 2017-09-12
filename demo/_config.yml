@@ -1,0 +1,37 @@
+title: Example ELN
+short-title: ELN # this prepended to the page title
+author: Your Name
+website: http://yourwebsite.here
+description: >
+  Write things here
+
+twitter_username: example
+github_username: example
+
+permalink: /log/:year_:month/
+
+# Build settings
+markdown: kramdown
+theme: jekyll-lab-notebook
+
+plugins:
+- jekyll-lab-notebook-plugins
+
+jekyll-lab-notebook:
+  home-page:
+    -
+      name: Log
+      is_posts: true
+      hidden: false
+    -
+      name: Protocols
+      dir: 'protocols/'
+      hidden: true
+    -
+      name: Miscellaneous
+      dir: 'random/'
+      hidden: true
+
+# live reload options
+livereload: true
+reload_port: 5678

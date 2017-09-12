@@ -24,7 +24,25 @@ whatever; think of this as your springboard.
 
 ## Installation and Usage
 
-See the [eln-example](https://github.com/tlnagy/eln-example) repo.
+The `demo/` folder contains a fully functioning example ELN. Clone this repo and navigate into the `demo/` folder. Make sure you have a recent version of ruby installed and then run
+
+```
+gem install bundler
+```
+
+which will install the `bundle` package manager. Next, run
+
+```
+bundle update
+```
+
+inside the `demo/` folder, which will install all the necessary packages. Then run
+
+```
+jekyll serve -wi
+```
+
+to actually serve the ELN and navigate to the address listed using your browser to see your ELN. Edit the posts inside the `_posts/` subdirectory to add entries.
 
 ## Contributing
 

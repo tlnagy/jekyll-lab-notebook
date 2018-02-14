@@ -29,3 +29,16 @@
 .cf:after {
     clear: both;
 }
+
+#results-container {
+    margin: 1em 0;
+}
+
+#results-container ul{
+    list-style: none;
+}
+
+#results-container li{
+    padding: 0.5em 1em;
+    display: inline-block;
+}

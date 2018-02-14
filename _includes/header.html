@@ -10,9 +10,11 @@
         {% for page in page_list %}
           <a class="page-link" href="/{{ page | downcase }}">{{ page }}</a>
         {% endfor %}
-        <a class="page-link" href="{{ site.website }}">{{ site.website | remove: "https://" | remove: "http://" }}</a>
+        <input type="text" id="search-input" placeholder="search...">
       </div>
     </nav>
-
+  </div>
+  <div class="wrapper">
+    <ul id="results-container"></ul>
   </div>
 </header>

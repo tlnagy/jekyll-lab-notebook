@@ -39,7 +39,7 @@ bundle update
 inside the `demo/` folder, which will install all the necessary packages. Then run
 
 ```
-jekyll serve -wi
+bundle exec jekyll serve -wi
 ```
 
 to actually serve the ELN and navigate to the address listed using your browser to see your ELN. Edit the posts inside the `_posts/` subdirectory to add entries.

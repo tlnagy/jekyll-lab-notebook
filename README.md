@@ -1,6 +1,7 @@
 # 📓 jekyll-lab-notebook
 
 [![Gem Version](https://badge.fury.io/rb/jekyll-lab-notebook.svg)](https://badge.fury.io/rb/jekyll-lab-notebook)
+[![Build Status](https://travis-ci.org/tlnagy/jekyll-lab-notebook.svg?branch=master)](https://travis-ci.org/tlnagy/jekyll-lab-notebook)
 
 Supercharge your electronic lab notebook!
 

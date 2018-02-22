@@ -7,7 +7,7 @@ gemfile: demo/Gemfile
 
 script:
   - cd demo
-  - bundle exec jekyll build
+  - bundle exec jekyll build --baseurl=/jekyll-lab-notebook
   - cd ..
 
 deploy:

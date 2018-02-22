@@ -11,6 +11,8 @@ to view all your hard work. It's hackable to its core so you can tweak it to
 your heart's desire. Add pages, change layouts, add cool jekyll plugins,
 whatever; think of this as your springboard.
 
+[LIVE DEMO HERE](http://tamasnagy.com/jekyll-lab-notebook/)
+
 ![](screenshot.png)
 
 ![](screenshot2.png)

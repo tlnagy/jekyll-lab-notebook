@@ -53,7 +53,7 @@ bundle update
 which will install all the dependencies necessary for this project and then run
 
 ```
-jekyll serve -wi
+bundle exec jekyll serve -wi
 ```
 
 to build and serve your website. Point your browser to the address that jekyll specifies to see your eln.

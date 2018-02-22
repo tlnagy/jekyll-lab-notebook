@@ -7,7 +7,7 @@ title: Projects
 <ul>
 {% for project in site.data.tagmap %}
   <li>
-    <a href="{{ page.url }}/{{ project[0] }}">{{ project[0] }}</a>
+    <a href="{{ site.baseurl }}{{ page.url }}{{ project[0] }}">{{ project[0] }}</a>
   </li>
 {% endfor %}
 </ul>

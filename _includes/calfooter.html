@@ -51,7 +51,7 @@ caloptions = {
     month = ("0"+(date.getMonth()+1)).slice(-2);
     day = ("0" + date.getDate()).slice(-2);
     if (nb > 0){
-      window.location.href = "/log/" + year + "_" + month + "/#" + year + month + day;
+      window.location.href = "{{ site.baseurl }}/log/" + year + "_" + month + "/#" + year + month + day;
     }
 	},
   legendColors: {

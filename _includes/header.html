@@ -8,7 +8,7 @@
         {% assign static_pages = "Projects" | split: "," %}
         {% assign page_list = site.header-pages | concat: static_pages %}
         {% for page in page_list %}
-          <a class="page-link" href="/{{ page | downcase }}">{{ page }}</a>
+          <a class="page-link" href="{{ site.baseurl }}/{{ page | downcase }}">{{ page }}</a>
         {% endfor %}
         <input type="text" id="search-input" placeholder="search...">
       </div>

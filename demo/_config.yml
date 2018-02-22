@@ -35,3 +35,6 @@ jekyll-lab-notebook:
 # live reload options
 livereload: true
 reload_port: 5678
+
+# prevent jekyll from exploding on Travis
+exclude: [vendor]

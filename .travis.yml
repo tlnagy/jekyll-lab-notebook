@@ -1,0 +1,23 @@
+language: ruby
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of nokogiri
+
+gemfile: demo/Gemfile
+
+script:
+  - cd demo
+  - bundle exec jekyll build
+  - cd ..
+
+deploy:
+  provider: pages
+  local-dir: demo/_site/
+  verbose: true
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
+
+sudo: false

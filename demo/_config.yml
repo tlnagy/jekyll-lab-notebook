@@ -1,9 +1,9 @@
 title: Example ELN
 short-title: ELN # this prepended to the page title
 author: Your Name
-website: http://yourwebsite.here
+website: https://github.com/tlnagy/jekyll-lab-notebook
 description: >
-  Write things here
+  This is a live demo of the jekyll-lab-notebook software.
 
 twitter_username: example
 github_username: example

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-lab-notebook"
-  spec.version       = "0.1.7"
+  spec.version       = "0.1.8"
   spec.authors       = ["Tamas Nagy"]
   spec.email         = ["tamas@tamasnagy.com"]
 

@@ -654,7 +654,6 @@ table tr:hover td {
   margin: 0 auto; }
 
 .post-content img {
-  height: 100%;
   max-height: 400px;
   display: block;
   margin-left: auto;
